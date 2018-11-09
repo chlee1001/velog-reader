@@ -1,4 +1,4 @@
-# velog-viewer
+# velog-reader
 
 - redux
 - styled-components
