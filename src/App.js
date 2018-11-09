@@ -1,28 +1,17 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route } from 'react-router-dom';
+import AppTemplate from './components/base/AppTemplate';
+import Header from './components/base/Header';
+import ListPage from './page/ListPage';
+import PostPage from './page/PostPage';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <AppTemplate header={<Header />}>
+      <Route exact path="/" component={ListPage} />
+      <Route path="/@:username/:urlSlug" component={PostPage} />
+    </AppTemplate>
+  );
+};
 
 export default App;
