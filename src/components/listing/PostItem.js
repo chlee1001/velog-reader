@@ -39,25 +39,20 @@ const PostItemWrapper = styled(Link)`
     padding-top: 2rem;
   }
 `;
+
 const PostItem = ({ post }) => {
+  const { url_slug, title, body, user, released_at, thumbnail } = post;
+  const to = `/@${user.username}/${url_slug}`;
   return (
-    <PostItemWrapper to="/@username/url-slug-sample">
-      <img
-        src="https://images.velog.io/post-images/velopert/7d68fae0-ddf8-11e8-b996-41fb520cde45/react-protal.png"
-        alt="thumbnail"
-      />
-      <h2>제목입니다</h2>
+    <PostItemWrapper to={to}>
+      {thumbnail && <img src={thumbnail} alt="thumbnail" />}
+      <h2>{title}</h2>
       <div className="info">
-        <span>velopert</span>
+        <span>{user.username}</span>
         <span className="middot">&middot;</span>
-        <span>{fromNow(new Date() - 1000 * 60 * 60 * 3)}</span>
+        <span>{fromNow(released_at)}</span>
       </div>
-      <p>
-        내용내용입니다. 내용은 엄청 길 수도 있고 짧을 수도 있습니다.
-        내용내용입니다. 내용은 엄청 길 수도 있고 짧을 수도 있습니다.
-        내용내용입니다. 내용은 엄청 길 수도 있고 짧을 수도 있습니다.
-        내용내용입니다. 내용은 엄청 길 수도 있고 짧을 수도 있습니다.
-      </p>
+      <p>{body}</p>
     </PostItemWrapper>
   );
 };

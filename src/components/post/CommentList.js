@@ -11,16 +11,14 @@ const CommentListWrapper = styled.div`
     margin-bottom: 1rem;
   }
 `;
-const CommentList = () => {
+const CommentList = ({ comments }) => {
+  if (!comments) return null;
   return (
     <CommentListWrapper>
       <h3>댓글</h3>
-      <CommentItem />
-      <CommentItem />
-      <CommentItem />
-      <CommentItem />
-      <CommentItem />
-      <CommentItem />
+      {comments.map(comment => (
+        <CommentItem comment={comment} key={comment.id} />
+      ))}
     </CommentListWrapper>
   );
 };

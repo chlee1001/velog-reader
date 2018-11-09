@@ -1,16 +1,14 @@
 import React from 'react';
 import PostItem from './PostItem';
+import TriangleSpinner from '../common/TriangleSpinner';
 
-const PostList = () => {
+const PostList = ({ posts }) => {
+  if (!posts) return <TriangleSpinner />;
   return (
     <div>
-      <PostItem />
-      <PostItem />
-      <PostItem />
-      <PostItem />
-      <PostItem />
-      <PostItem />
-      <PostItem />
+      {posts.map(post => (
+        <PostItem key={post.id} post={post} />
+      ))}
     </div>
   );
 };

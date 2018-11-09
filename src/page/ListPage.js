@@ -1,11 +1,11 @@
 import React from 'react';
 import ListTemplate from '../components/listing/ListTemplate';
-import PostList from '../components/listing/PostList';
+import PostListContainer from '../containers/list/PostListContainer';
 
 const ListPage = () => {
   return (
     <ListTemplate>
-      <PostList />
+      <PostListContainer />
     </ListTemplate>
   );
 };

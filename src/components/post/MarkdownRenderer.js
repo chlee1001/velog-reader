@@ -18,7 +18,6 @@ marked.setOptions({
   renderer: new marked.Renderer(),
   highlight: function(code) {
     const highlighted = highlight.highlightAuto(code).value;
-    console.log(highlighted);
     return highlighted;
   },
   pedantic: false,

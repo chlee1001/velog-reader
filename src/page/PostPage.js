@@ -1,15 +1,13 @@
 import React from 'react';
 import PostTemplate from '../components/post/PostTemplate';
-import PostViewer from '../components/post/PostViewer';
 import ScrollToTop from '../components/base/ScrollToTop';
-import CommentList from '../components/post/CommentList';
+import PostContainer from '../containers/post/PostContainer';
 
-const PostPage = () => {
+const PostPage = ({ match }) => {
   return (
     <PostTemplate>
       <ScrollToTop />
-      <PostViewer />
-      <CommentList />
+      <PostContainer params={match.params} />
     </PostTemplate>
   );
 };

@@ -21,13 +21,14 @@ const CommentItemWrapper = styled.div`
     border-top: 1px solid #e9ecef;
   }
 `;
-const CommentItem = () => {
+const CommentItem = ({ comment }) => {
+  const { user, created_at, text } = comment;
   return (
     <CommentItemWrapper>
-      <div className="username">velopert</div>
-      <div className="date">{fromNow(new Date() - 1000 * 60 * 60 * 3)}</div>
+      <div className="username">{user.username}</div>
+      <div className="date">{fromNow(created_at)}</div>
       <div className="comment-content">
-        <MarkdownRenderer body="참고: 댓글도 **마크다운**이 됩니다! 댓글은 *어쩌구 저쩌구*" />
+        <MarkdownRenderer body={text} />
       </div>
     </CommentItemWrapper>
   );
